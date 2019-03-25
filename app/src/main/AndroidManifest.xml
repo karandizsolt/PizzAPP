@@ -16,8 +16,7 @@
         <activity
             android:name=".OrderActivity"
             android:label="@string/title_activity_order"
-            android:parentActivityName=".ListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:parentActivityName=".ListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.pizzapp.ListActivity" />
@@ -25,15 +24,15 @@
         <activity
             android:name=".ListActivity"
             android:label="@string/title_activity_list"
-            android:parentActivityName=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:parentActivityName=".LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.pizzapp.LoginActivity" />
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
