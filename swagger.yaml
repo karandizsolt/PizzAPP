@@ -1,0 +1,135 @@
+---
+swagger: "2.0"
+info:
+  description: This is a simple API
+  version: 1.0.0
+  title: Simple Inventory API
+  contact:
+    email: karandivik@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /karandizsolt/PizzAPP/1.0.0
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: users
+  description: Operations available to regular users
+schemes:
+- https
+paths:
+  /login:
+    post:
+      tags:
+      - users
+      summary: login
+      description: |
+        Login to the application
+      operationId: login
+      produces:
+      - application/json
+      parameters:
+      - name: email
+        in: query
+        required: false
+        type: string
+      - name: password
+        in: query
+        required: false
+        type: string
+      responses:
+        200:
+          description: Successful
+          schema:
+            type: boolean
+        400:
+          description: Wrong email or password
+  /register:
+    post:
+      tags:
+      - users
+      summary: register
+      description: |
+        Register to the application
+      operationId: register
+      produces:
+      - application/json
+      parameters:
+      - name: email
+        in: query
+        required: false
+        type: string
+      - name: password
+        in: query
+        required: false
+        type: string
+      responses:
+        200:
+          description: Successful
+          schema:
+            type: boolean
+        400:
+          description: Wrong email or password
+  /order:
+    post:
+      tags:
+      - users
+      summary: order
+      description: |
+        order pizza
+      operationId: order
+      produces:
+      - application/json
+      parameters:
+      - name: email
+        in: query
+        required: false
+        type: string
+      - name: names
+        in: query
+        required: false
+        type: string
+      - name: price
+        in: query
+        required: false
+        type: integer
+      responses:
+        200:
+          description: Successful
+          schema:
+            type: boolean
+        400:
+          description: Wrong ordering
+  /menu:
+    get:
+      tags:
+      - users
+      summary: get menu
+      description: |
+        Get pizzas
+      operationId: menu
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: Successful
+          schema:
+            $ref: '#/definitions/Menu'
+definitions:
+  Menu:
+    type: object
+    required:
+    - name
+    - price
+    properties:
+      name:
+        type: string
+        example: Hawaii
+      desc:
+        type: string
+        example: nagyon finom
+      price:
+        type: integer
+        example: 3420
